@@ -1,12 +1,17 @@
 import { useState } from 'react'
-import { LoginAPI } from '../api/AuthAPI'
+import { RegisterAPI } from '../api/AuthAPI'
 import '../Sass/LoginComponent.scss'
 
 const LoginComponent = () => {
     const [credentails, setCredentails] = useState({})
     const login = () => {
-      let res = LoginAPI(credentails.email, credentails.password)
-      console.log(res)
+      try {
+        let res = RegisterAPI(credentails.email, credentails.password)
+    console.log(res)
+      }
+      catch(e) {
+        return e
+      }
     }
     return (
         <div className='login-wrapper'>
@@ -16,7 +21,7 @@ const LoginComponent = () => {
                 setCredentails({...credentails, email: event.target.value})}
                 className='common-input' placeholder='Enter your email' />
                 <input onChange={(event) =>
-                setCredentails({...credentails, password: event.target.password})}
+                setCredentails({...credentails, password: event.target.value})}
                 className='common-input' placeholder='Enter your password' />
             </div>
             <button onClick={login} className="login-btn">Log in to LinkedIn</button>

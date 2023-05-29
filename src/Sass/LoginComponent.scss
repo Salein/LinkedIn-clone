@@ -8,10 +8,14 @@
 
 .common-input {
   margin: 10px;
+  height: 25px;
 }
 
-.wrapper {
-    display: block;
-    text-align: center;
-    
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100vh;
+  grid-template-rows: 2fr;
+  gap: 30px;
+  justify-content: center;
 }
